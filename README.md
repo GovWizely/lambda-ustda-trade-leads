@@ -10,7 +10,7 @@ It uploads that JSON file to a S3 bucket.
 Follow instructions from [python-lambda](https://github.com/nficano/python-lambda) to ensure your basic development environment is ready,
 including:
 
-* Python
+* Python 2.7
 * Pip
 * Virtualenv
 * Virtualenvwrapper
@@ -20,7 +20,7 @@ including:
 
 	git clone git@github.com:GovWizely/lambda-ustda-trade-leads.git
 	cd lambda-ustda-trade-leads
-	mkvirtualenv -r requirements.txt lambda-ustda-trade-leads
+	mkvirtualenv -r requirements.txt -p /usr/bin/python2.7 lambda-ustda-trade-leads
 
 ## Configuration
 
@@ -34,4 +34,4 @@ including:
  
 ## Deploy
 
-	lambda deploy
+	lambda deploy --use-requirements
