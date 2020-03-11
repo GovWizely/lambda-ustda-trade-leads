@@ -1,0 +1,121 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.23.0
+    method: GET
+    uri: https://www.ustda.gov/business-opportunities/trade-leads/feed
+  response:
+    body:
+      string: "<?xml version=\"1.0\" encoding=\"utf-8\" ?><rss version=\"2.0\" xml:base=\"https://ustda.gov/business-opportunities/trade-leads/feed\"
+        xmlns:dc=\"http://purl.org/dc/elements/1.1/\" xmlns:atom=\"http://www.w3.org/2005/Atom\"
+        xmlns:content=\"http://purl.org/rss/1.0/modules/content/\" xmlns:foaf=\"http://xmlns.com/foaf/0.1/\"
+        xmlns:og=\"http://ogp.me/ns#\" xmlns:rdfs=\"http://www.w3.org/2000/01/rdf-schema#\"
+        xmlns:sioc=\"http://rdfs.org/sioc/ns#\" xmlns:sioct=\"http://rdfs.org/sioc/types#\"
+        xmlns:skos=\"http://www.w3.org/2004/02/skos/core#\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema#\">\n
+        \ <channel>\n    <title>USTDA Trade Leads</title>\n    <link>https://ustda.gov/business-opportunities/trade-leads/feed</link>\n
+        \   <description></description>\n    <language>en</language>\n     <atom:link
+        href=\"https://ustda.gov/business-opportunities/trade-leads/feed\" rel=\"self\"
+        type=\"application/rss+xml\" />\n      <item>\n    <title>High Definition
+        Data Transfer from Mobile Aerial Vehicles  </title>\n    <link>https://ustda.gov/business-opportunities/trade-leads/high-definition-data</link>\n
+        \   <description>Background: \n\nThe City of Cape Town, South Africa is committed</description>\n
+        \    <pubDate>&lt;span class=&quot;date-display-single&quot; property=&quot;dc:date&quot;
+        datatype=&quot;xsd:dateTime&quot; content=&quot;2020-02-03T00:00:00-05:00&quot;&gt;February
+        03, 2020&lt;/span&gt;</pubDate>\n <dc:creator>USTDA</dc:creator>\n <guid isPermaLink=\"false\">2467</guid>\n
+        \ </item>\n  </channel>\n</rss>\n"
+    headers:
+      Cache-Control:
+      - no-cache, must-revalidate
+      Connection:
+      - Keep-Alive
+      Content-Language:
+      - en
+      Content-Length:
+      - '2534'
+      Content-Type:
+      - application/rss+xml; charset=utf-8
+      Date:
+      - Wed, 11 Mar 2020 18:21:36 GMT
+      Expires:
+      - Sun, 19 Nov 1978 05:00:00 GMT
+      Keep-Alive:
+      - timeout=15, max=100
+      P3P:
+      - CP="CAO DSP CURa ADMa DEVa TAIa PSAa PSDa IVAi IVDi HISa OUR IND PHY ONL UNI
+        COM NAV INT CNT STA LOC GOV"
+      Server:
+      - Apache
+      Strict-Transport-Security:
+      - max-age=31536000
+      Vary:
+      - Host
+      X-Content-Type-Options:
+      - nosniff
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.23.0
+    method: GET
+    uri: https://www.ustda.gov/api/tradeleads/xml
+  response:
+    body:
+      string: "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>\n<nodes>\n  <node>\n    <Title>High
+        Definition Data Transfer from Mobile Aerial Vehicles  </Title>\n    <Open-Date>02/03/2020</Open-Date>\n
+        \   <Close-Date>02/07/2020</Close-Date>\n    <Description>Background: \r\n\r\nThe
+        City of Cape Town, South Africa is committed</Description>\n
+        \ </node>\n</nodes>\n"
+    headers:
+      Cache-Control:
+      - max-age=60, must-revalidate
+      Connection:
+      - Keep-Alive
+      Content-Language:
+      - en
+      Content-Length:
+      - '1367'
+      Content-Type:
+      - text/xml;charset=UTF-8
+      Date:
+      - Wed, 11 Mar 2020 18:21:36 GMT
+      Expires:
+      - Sun, 19 Nov 1978 05:00:00 GMT
+      Keep-Alive:
+      - timeout=15, max=100
+      P3P:
+      - CP="CAO DSP CURa ADMa DEVa TAIa PSAa PSDa IVAi IVDi HISa OUR IND PHY ONL UNI
+        COM NAV INT CNT STA LOC GOV"
+      Server:
+      - Apache
+      Strict-Transport-Security:
+      - max-age=31536000
+      Vary:
+      - Host
+      X-Content-Type-Options:
+      - nosniff
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+    status:
+      code: 200
+      message: OK
+version: 1
