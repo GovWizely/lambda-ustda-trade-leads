@@ -29,5 +29,5 @@ def test_handler_handles_parse_error(mocker):
 
 
 def test_normalize_date_handles_missing_field():
-    """Ensures any mossing date fields get represented as None"""
+    """Ensures any missing date fields get represented as None"""
     assert normalize_date({'open_date': '10/10/2020'}, 'close_date') is None
