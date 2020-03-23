@@ -1,23 +1,33 @@
 # -*- coding: utf-8 -*-
 import datetime as dt
 import json
+import logging
 import xml.etree.ElementTree as ET
 
 import boto3
 import requests
+from botocore.exceptions import ClientError
 
+JSON = "application/json"
+BUCKET = "trade-leads"
 KEY = "ustda.json"
 XML_ENDPOINT = "https://www.ustda.gov/api/tradeleads/xml"
 RSS_ENDPOINT = "https://www.ustda.gov/business-opportunities/trade-leads/feed"
-S3_CLIENT = boto3.resource("s3")
+S3_CLIENT = boto3.client("s3")
 
 
 def handler(event, context):
-    entries = get_entries()
-    S3_CLIENT.Object("trade-leads", KEY).put(
-        Body=json.dumps(entries), ContentType="application/json"
-    )
-    return f"Uploaded {KEY} file with {len(entries)} trade leads"
+    response = True
+    try:
+        entries = get_entries()
+        S3_CLIENT.put_object(
+            Bucket=BUCKET, Key=KEY, Body=json.dumps(entries), ContentType=JSON
+        )
+        print(f"✅ Uploaded {KEY} file with {len(entries)} locations")
+    except (ClientError, ET.ParseError) as e:
+        logging.error(e)
+        response = False
+    return response
 
 
 def get_entries():
@@ -39,13 +49,9 @@ def get_entry(node, title_link_dict):
     }
     entry["title"] = entry["title"].strip()
     entry["url"] = title_link_dict.get(entry["title"], None)
-    entry["open_date"] = normalize_date(entry["open_date"])
-    entry["close_date"] = normalize_date(entry["close_date"])
+    entry["open_date"] = normalize_date(entry, "open_date")
+    entry["close_date"] = normalize_date(entry, "close_date")
     return entry
-
-
-def normalize_date(entry_date):
-    return dt.datetime.strptime(entry_date, "%m/%d/%Y").strftime("%Y-%m-%d")
 
 
 def get_items():
@@ -58,3 +64,10 @@ def get_items():
     }
     print(f"Found {len(title_link_dict)} items")
     return title_link_dict
+
+
+def normalize_date(entry, key):
+    try:
+        return dt.datetime.strptime(entry[key], '%m/%d/%Y').strftime('%Y-%m-%d')
+    except KeyError:
+        return None
